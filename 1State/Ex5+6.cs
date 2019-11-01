@@ -29,7 +29,7 @@ namespace ConsoleApp1
                     Console.WriteLine("Ошибка: Неизвестная операцию!");
                 }
 
-                Console.WriteLine("Продолжить использование калькулятора? true/false");
+                Console.WriteLine("Прекратить использование калькулятора? true/false");
                 if(Convert.ToBoolean(Console.ReadLine()))
                 {
                     break;
