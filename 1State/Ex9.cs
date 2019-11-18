@@ -21,19 +21,28 @@ namespace ConsoleApp1
         {
             int[] point = new int[6]; //память на 3 точки (x,y)
             double[] border_size = new double[3]; //значение сторон
+            int j = 0;
 
             Console.WriteLine("Введите значение точек:");
             for(int i=0; i<6; i+=2)
             {
-                Console.Write("#"+i+"(x,y): ");
+                j++;
+                Console.Write("#"+j+"(x,y): ");
                 point[i] = Convert.ToInt32(Console.ReadLine());
                 point[i+1] = Convert.ToInt32(Console.ReadLine());
             }
+
 
             //Подсчет сторон
             border_size[0] = Math.Sqrt(Math.Pow(point[0] - point[2], 2) + Math.Pow(point[1] - point[3], 2));
             border_size[1] = Math.Sqrt(Math.Pow(point[2] - point[4], 2) + Math.Pow(point[3] - point[5], 2));
             border_size[2] = Math.Sqrt(Math.Pow(point[0] - point[4], 2) + Math.Pow(point[1] - point[5], 2));
+
+            if(border_size[0] == 0 || border_size[1]==0 || border_size[2]==0  )
+            {
+                Console.WriteLine("Не треугольник");
+                Environment.Exit(0);
+            }
 
             //*Классификация
             if(!(border_size[0]==border_size[1]&&border_size[1] == border_size[2]))
